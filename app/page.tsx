@@ -5,8 +5,6 @@ export const metadata: Metadata = {
   description: 'Welcome to the home page of our Next.js application.'
 }
 
-export default function Page() {
-  return (
-      <h1 className='text-white'>Welcome to the Home Page!</h1>
-  )
+export default function HomePage() {
+  return <h1 className='text-white'>Welcome to the Home Page!</h1>
 }

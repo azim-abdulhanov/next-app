@@ -1,3 +1,4 @@
+import { Navbar } from '@/components/layout/navbar'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -27,9 +28,9 @@ export default function RootLayout({
     <html
       lang='en'
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className='min-h-full flex flex-col'>
-        {/* Navbar */}
-        <main>{children}</main>
+      <body className='min-h-full flex flex-col bg-white'>
+        <Navbar />
+        <main className='grow container mx-auto px-6 py-8'>{children}</main>
       </body>
     </html>
   )
