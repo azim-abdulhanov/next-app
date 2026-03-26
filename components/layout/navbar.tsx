@@ -22,7 +22,7 @@ export function Navbar() {
           <li>
             <Link
               className='text-foreground hover:text-blue-600 transition-colors'
-              href={PagesConfig.ORDERS}>
+              href={PagesConfig.PRODUCTS}>
               Orders
             </Link>
           </li>
