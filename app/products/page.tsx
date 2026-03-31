@@ -1,3 +1,5 @@
+import { ProductList } from '@/components/product-list/product-list'
+import { stripe } from '@/lib/stripe'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -6,6 +8,15 @@ export const metadata: Metadata = {
     'Explore our wide range of products and find the perfect items for you. From electronics to fashion, we have something for everyone.'
 }
 
-export default function ProductsPage() {
-  return <div>Products</div>
+export default async function Page() {
+  const products = await stripe.products.list({
+    expand: ['data.default_price']
+  })
+
+  return (
+    <div>
+      <h2 className='text-3xl font-bold mb-4'>All Products</h2>
+      <ProductList products={products.data} />
+    </div>
+  )
 }

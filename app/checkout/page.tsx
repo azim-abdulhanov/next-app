@@ -6,6 +6,6 @@ export const metadata: Metadata = {
     'Complete your purchase and enjoy our products. Review your order, enter your payment details, and finalize your checkout process with ease.'
 }
 
-export default function CheckoutPage() {
+export default function Page() {
   return <div>Checkout</div>
 }

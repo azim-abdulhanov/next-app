@@ -1,4 +1,3 @@
-import { PagesConfig } from '@/config/pages.config'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -6,7 +5,7 @@ export function Navbar() {
   return (
     <header className='sticky top-0 z-40 flex items-center justify-between border-b border-border bg-background px-6 py-3'>
       {/* Logo */}
-      <Link href={PagesConfig.HOME}>
+      <Link href='/'>
         <Image
           src='/logo.png'
           alt='Logo'
@@ -22,14 +21,14 @@ export function Navbar() {
           <li>
             <Link
               className='text-foreground hover:text-blue-600 transition-colors'
-              href={PagesConfig.PRODUCTS}>
+              href='/products'>
               Orders
             </Link>
           </li>
           <li>
             <Link
               className='text-foreground hover:text-blue-600 transition-colors'
-              href={PagesConfig.FAVORITES}>
+              href='/checkout'>
               Products
             </Link>
           </li>

@@ -1,6 +1,5 @@
 import { Carousel } from '@/components/carousel/carousel'
 import { Button } from '@/components/ui/button'
-import { PagesConfig } from '@/config/pages.config'
 import { stripe } from '@/lib/stripe'
 import { ChevronRight } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Welcome to the home page of our Next.js application.'
 }
 
-export default async function HomePage() {
+export default async function Page() {
   const products = await stripe.products.list({
     expand: ['data.default_price'],
     limit: 5
@@ -27,7 +26,7 @@ export default async function HomePage() {
             Discover our latest products and enjoy seamless shopping experience.
             Browse our collection and find the perfect items for you!
           </p>
-          <Link href={PagesConfig.PRODUCTS}>
+          <Link href='/products'>
             <Button variant='outline' className='mt-6 cursor-pointer'>
               View Products <ChevronRight className='ml-1' size={18} />
             </Button>
