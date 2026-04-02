@@ -21,8 +21,10 @@ export default async function Page() {
     <>
       <section className='flex items-center justify-between gap-8 mb-16 border rounded-lg p-8'>
         <div className='max-w-lg'>
-          <h1 className='text-4xl font-bold'>Welcome to My Ecommerce</h1>
-          <p className='mt-4 text-gray-600'>
+          <h1 className='text-xl md:text-4xl font-bold'>
+            Welcome to My Ecommerce
+          </h1>
+          <p className='mt-4 text-xs md:text-sm text-gray-600'>
             Discover our latest products and enjoy seamless shopping experience.
             Browse our collection and find the perfect items for you!
           </p>
@@ -40,6 +42,7 @@ export default async function Page() {
             width={450}
             height={450}
             className='object-contain w-full h-full'
+            loading='eager'
           />
         </div>
       </section>

@@ -34,6 +34,7 @@ export function Carousel({ products }: CarouselProps) {
             width={400}
             height={400}
             className='object-contain w-full h-full opacity-70'
+            loading='eager'
           />
         </div>
       )}

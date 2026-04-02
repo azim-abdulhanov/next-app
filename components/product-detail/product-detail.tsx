@@ -1,6 +1,7 @@
 'use client'
 
 import { useCartStore } from '@/store/cart.store'
+import { Minus, Plus } from 'lucide-react'
 import Image from 'next/image'
 import Stripe from 'stripe'
 import { Button } from '../ui/button'
@@ -58,15 +59,17 @@ export function ProductDetail({ product }: ProductDetailProps) {
           <Button
             className='cursor-pointer'
             variant='outline'
-            onClick={() => removeItem(product.id)}>
-            -
+            onClick={() => removeItem(product.id)}
+            disabled={quantity === 0}>
+            <Minus className='w-4 h-4' />
           </Button>
           <span className='text-md font-semibold'>{quantity}</span>
           <Button
             className='cursor-pointer'
             variant='outline'
-            onClick={onAddItem}>
-            +
+            onClick={onAddItem}
+            disabled={quantity >= 10}>
+            <Plus className='w-4 h-4' />
           </Button>
         </div>
       </div>

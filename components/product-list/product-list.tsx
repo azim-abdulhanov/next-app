@@ -9,7 +9,6 @@ interface ProductListProps {
 }
 
 export function ProductList({ products }: ProductListProps) {
-  // Search products by name or description
   const [searchTerm, setSearchTerm] = useState<string>('')
 
   const filteredProducts = products.filter(product => {
