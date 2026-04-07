@@ -1,3 +1,4 @@
+import { Checkout } from '@/components/checkout/checkout'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -7,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <div>Checkout</div>
+  return <Checkout />
 }
