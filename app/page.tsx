@@ -1,4 +1,4 @@
-import { Carousel } from '@/components/carousel/carousel'
+import { ProductCarousel } from '@/components/carousel/carousel'
 import { Button } from '@/components/ui/button'
 import { stripe } from '@/lib/stripe'
 import { ChevronRight } from 'lucide-react'
@@ -19,23 +19,24 @@ export default async function Page() {
 
   return (
     <>
-      <section className='flex items-center justify-between gap-8 mb-16 border rounded-lg p-8'>
+      <section className='flex items-center justify-between gap-8 mb-10 border rounded-2xl p-8'>
         <div className='max-w-lg'>
-          <h1 className='text-xl md:text-4xl font-bold'>
-            Welcome to My Ecommerce
+          <h1 className='text-2xl md:text-4xl font-bold'>
+            Welcome to Our Store
           </h1>
-          <p className='mt-4 text-xs md:text-sm text-gray-600'>
-            Discover our latest products and enjoy seamless shopping experience.
-            Browse our collection and find the perfect items for you!
+          <p className='mt-4 text-gray-600'>
+            Discover our exclusive collection of products and enjoy seamless
+            shopping experience.
           </p>
           <Link href='/products'>
             <Button variant='outline' className='mt-6 cursor-pointer'>
-              View Products <ChevronRight className='ml-1' size={18} />
+              <span>View Products</span>
+              <ChevronRight size={18} />
             </Button>
           </Link>
         </div>
 
-        <div className='w-96 h-96 relative'>
+        <div className='w-96 h-96 relative hidden md:block'>
           <Image
             src={products.data[0].images[0]}
             alt={products.data[0].name}
@@ -48,7 +49,7 @@ export default async function Page() {
       </section>
 
       <section>
-        <Carousel products={products.data} />
+        <ProductCarousel products={products.data} />
       </section>
     </>
   )

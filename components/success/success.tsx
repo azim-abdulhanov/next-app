@@ -3,6 +3,7 @@
 import { useCartStore } from '@/store/cart.store'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { Button } from '../ui/button'
 
 export function Success() {
   const { clearCart } = useCartStore()
@@ -14,14 +15,14 @@ export function Success() {
   return (
     <div>
       <h2 className='text-2xl font-bold mb-4'>Success</h2>
-      <p>
+      <p className='text-gray-700'>
         Your order was successful! Thank you for your purchase. You will receive
         an email confirmation shortly.
       </p>
       <Link href='/products'>
-        <button className='mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700'>
+        <Button className='mt-4 cursor-pointer' size='lg'>
           Continue Shopping
-        </button>
+        </Button>
       </Link>
     </div>
   )

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Stripe from 'stripe'
 import { ProductCard } from '../product-card/product-card'
-
+import { Input } from '../ui/input'
 interface ProductListProps {
   products: Stripe.Product[]
 }
@@ -24,12 +24,12 @@ export function ProductList({ products }: ProductListProps) {
 
   return (
     <div>
-      <input
-        className='w-full border rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300'
+      <Input
         type='text'
         placeholder='Search products...'
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
+        className='mb-4 w-full h-10'
       />
 
       <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-6'>

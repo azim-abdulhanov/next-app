@@ -1,11 +1,12 @@
 'use client'
 
 import { checkoutAction } from '@/app/checkout/checkout-action'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
 import { useCartStore } from '@/store/cart.store'
 import { Minus, Plus } from 'lucide-react'
 import Image from 'next/image'
-import { Button } from '../ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 
 export function Checkout() {
   const { items, addItem, removeItem } = useCartStore()
@@ -20,7 +21,7 @@ export function Checkout() {
     <div>
       <h2 className='text-2xl font-bold mb-4'>Checkout</h2>
       <Card className='p-4'>
-        <CardHeader>
+        <CardHeader className='mb-3'>
           <CardTitle>Order Summary</CardTitle>
         </CardHeader>
         <CardContent>
@@ -28,21 +29,19 @@ export function Checkout() {
             {items.map(item => (
               <li
                 key={item.id}
-                className='flex flex-col md:flex-row justify-between items-start gap-4 py-5'>
-                <div className='flex items-start gap-4 w-full md:max-w-3xl'>
-                  <div className='w-12 h-12 relative shrink-0'>
-                    <Image
-                      src={item.imageUrl || '/placeholder.png'}
-                      alt={item.name}
-                      width={50}
-                      height={50}
-                      className='rounded object-contain w-full h-full'
-                    />
-                  </div>
+                className='flex flex-col md:flex-row justify-between items-center gap-4 py-5'>
+                <div className='flex items-start gap-5 w-full md:max-w-3xl'>
+                  <Image
+                    src={item.imageUrl || '/placeholder.png'}
+                    alt={item.name}
+                    width={56}
+                    height={56}
+                    className='object-contain w-14 h-14'
+                  />
 
                   <div className='flex flex-col gap-2'>
                     <span className='font-medium text-md'>
-                      {item.name} x {item.quantity}
+                      {item.name} x {item.quantity} pc.
                     </span>
                     <span className='text-gray-600'>
                       ${(item.price * item.quantity).toFixed(2)}
@@ -61,7 +60,6 @@ export function Checkout() {
                   <Button
                     className='cursor-pointer'
                     size='icon-sm'
-                    variant='outline'
                     onClick={() => addItem({ ...item, quantity: 1 })}
                     disabled={item.quantity >= 10}>
                     <Plus className='size-3' />
@@ -78,7 +76,7 @@ export function Checkout() {
       </Card>
 
       <form action={checkoutAction} className='mt-6'>
-        <input type='hidden' name='items' value={JSON.stringify(items)} />
+        <Input type='hidden' name='items' value={JSON.stringify(items)} />
         <Button type='submit' className='cursor-pointer' size='lg'>
           Place Order
         </Button>
